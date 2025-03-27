@@ -28,3 +28,5 @@ while True:
     if j > 5:
         break
     print('*' * j)
+
+# 얘도

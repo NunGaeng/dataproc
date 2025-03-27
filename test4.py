@@ -25,3 +25,5 @@ for score in scores:
         print('%d번째 학생은 합격입니다.'% num)
     else:
         print('%d번째 학생은 불합격입니다.'% num)
+
+# 왜 안돼
