@@ -3,7 +3,7 @@ import json
 
 #https://kr.api.riotgames.com/lol/league-exp/v4/entries/RANKED_SOLO_5x5/MASTER/I?page=49&api_key=RGAPI-a939dfb2-6144-468a-b20b-b3b539a4bc61
 
-API_KEY = "RGAPI-a939dfb2-6144-468a-b20b-b3b539a4bc61"
+API_KEY = "RGAPI-4e5b9804-f600-4965-9f72-da585b285abe"
 HEADERS = {"X-Riot-Token" : API_KEY}
 
 QUEUE = "RANKED_SOLO_5x5"
