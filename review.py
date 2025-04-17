@@ -95,3 +95,5 @@ max_freq = max(count_data)
 max_num = data[count_data.index(max_freq)]
 
 print(f'최빈치 : {max_num}, 개수 : {max_freq}')
+
+# 크아아악
