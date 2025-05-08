@@ -96,4 +96,18 @@ max_num = data[count_data.index(max_freq)]
 
 print(f'최빈치 : {max_num}, 개수 : {max_freq}')
 
-# 크아아악
+# 문제 변형 1
+height = 5
+center = height // 2
+for j in range(-center, center+1):
+    star = height - 2 * abs(j)
+    blank = abs(j)
+    print(f'{blank * ' '}{star * '*'}')
+
+# 문제 변형 2
+data = [4, 5, 6, 5, 4, 3, 2, 1, 4, 5, 6, 6]
+
+count_data = []
+for j in data:
+    count_data.append(data.count(j))
+
