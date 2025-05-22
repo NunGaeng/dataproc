@@ -5,7 +5,6 @@ with open("match_0.json", "r", encoding="utf-8") as f:
 
 single_match = data[0]
 
-
 metadata = single_match["metadata"]
 info = single_match["info"]
 
@@ -16,7 +15,6 @@ import datetime
 time = info["gameCreation"]
 print(time)
 time = time // 1000
-
 d = datetime.datetime.fromtimestamp(time, datetime.UTC)
 print(d)
 
@@ -24,9 +22,8 @@ print("*** LoL 매치데이터 정보 ***")
 print(f"Match Id : {metadata["matchId"]}")
 print(f"게임 생성 시간 : {d.strftime('%Y년 %m월 %d일 %H시 %M분')}")
 print(f"게임 플레이 시간 : {info["gameDuration"]//60}분 {info["gameDuration"] % 60}초")
-
-participants = info["participants"]
-p = participants[0]
+paticipants = info["participants"]
+p = paticipants[0]
 if p["win"]:
     winteam = "블루" if p["teamId"] == 100 else "레드"
 else:
@@ -34,7 +31,7 @@ else:
 print(f"승리 팀 : {winteam}")
 
 print("\n** 플레이어 정보 **")
-for p in participants:
+for p in paticipants:
     print(f"포지션 : {p["teamPosition"]}")
     print(f"팀 : {"블루" if p["teamId"] == 100 else "레드"}")
     print(f"챔피언 : {p["championName"]}")
