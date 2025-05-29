@@ -39,6 +39,7 @@ blue_score = []
 red_score = []
 diff = []
 to_extract = 'totalGold'
+position = 'MIDDLE'
 frames = timeline['frames']
 for frame in frames:
     time = frame['timestamp'] // 60000
@@ -47,10 +48,12 @@ for frame in frames:
     diff_1min = 0
     for pid, item in frame['participantFrames'].items():
         if int(pid) in blue_team:
-            blue_score_1min += item[to_extract]
+            if blue_team[int(pid)] == position:
+                blue_score_1min += item[to_extract]
             print(f'time={time:2d}, pid={pid:2s}, team=blue, score={item[to_extract]}')
         else:
-            red_score_1min += item[to_extract]
+            if red_team[int(pid)] == position:
+                red_score_1min += item[to_extract]
             print(f'time={time:2d}, pid={pid:2s}, team=red, score={item[to_extract]}')
 
         diff_1min = blue_score_1min - red_score_1min
@@ -69,12 +72,12 @@ print(red_score)
 
 import matplotlib.pyplot as plt
 
-plt.plot(minutes, blue_score, label=f"{to_extract}", marker = 'o', linewidth=2)
-plt.plot(minutes, red_score, label=f"{to_extract}", marker = 'o', linewidth=2)
+plt.plot(minutes, blue_score, label=f"Blue[{position}] {to_extract}", marker = 'o', linewidth=2)
+plt.plot(minutes, red_score, label=f"Red[{position}] {to_extract}", marker = 'o', linewidth=2)
 
 plt.xlabel('Minutes (m)')
 plt.ylabel(f"{to_extract}")
-plt.title(f'Feature {to_extract} Graph,')
+plt.title(f'Feature {to_extract} Graph, Position = {position}')
 plt.legend()
 plt.grid(True)
 plt.show()
@@ -82,9 +85,9 @@ plt.show()
 # blue_score와 red_score의 차이를 그래프로 그려봅시다
 plt.figure()
 
-# diff = []
-# for j in range(len(minutes)):
-#     diff.append(blue_score[j] - red_score[j])
+diff = []
+for j in range(len(minutes)):
+    diff.append(blue_score[j] - red_score[j])
 print(diff)
 plt.plot(minutes, diff, marker = 'o', linewidth=2)
 plt.show()
