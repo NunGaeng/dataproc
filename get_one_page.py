@@ -10,7 +10,7 @@ service = Service(driver_path)
 # service = Service(ChromeDriverManager().install())
 driver = webdriver.Chrome(service=service)
 
-driver.get("https://www.epeople.go.kr/nep/prpsl/opnPrpl/opnpblPrpslList.npaid")
+driver.get("https://www.epeople.go.kr/nep/prpsl/opnPrpl/opnpblPrpslList.npaid?pageIndex=2")
 print(driver.title)
 
 import time
@@ -47,7 +47,7 @@ for idx, row in enumerate(rows):
         }
         data_list.append(item)
         
-        print(f"[{idx} 저장 완료 -> 목록 복귀")
+        print(f"[{idx}] 저장 완료 -> 목록 복귀")
         driver.back()
         time.sleep(2)
 
